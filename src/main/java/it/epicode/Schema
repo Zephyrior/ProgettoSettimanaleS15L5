@@ -1,0 +1,7 @@
+Utente 1 ——— N Prestito
+Un utente può avere N Prestito
+N Prestito può essere effettuato da un Utente
+
+Catalogo 1 ——— N Prestito
+Un catalogo può avere N Prestito
+Un Prestito può avere un Catalogo alla volta
