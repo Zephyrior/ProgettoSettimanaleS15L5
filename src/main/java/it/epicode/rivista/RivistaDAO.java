@@ -3,6 +3,8 @@ package it.epicode.rivista;
 import it.epicode.libro.Libro;
 import jakarta.persistence.EntityManager;
 
+import java.util.List;
+
 public class RivistaDAO {
     private EntityManager em;
 
@@ -12,6 +14,12 @@ public class RivistaDAO {
 
     public Rivista findByIsbn(Long isbn) {
         return em.find(Rivista.class, isbn);
+    }
+
+    public List<Rivista> findByPubblicationYear(int annoPubblicazione) {
+        return em.createQuery("SELECT r FROM Rivista r WHERE r.annoPubblicazione = :annoPubblicazione", Rivista.class)
+                .setParameter("annoPubblicazione", annoPubblicazione)
+                .getResultList();
     }
 
     public void insert(Rivista rivista) {

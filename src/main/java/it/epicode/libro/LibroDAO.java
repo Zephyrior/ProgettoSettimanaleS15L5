@@ -2,6 +2,9 @@ package it.epicode.libro;
 
 import jakarta.persistence.EntityManager;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class LibroDAO {
     private EntityManager em;
 
@@ -11,6 +14,12 @@ public class LibroDAO {
 
     public Libro findByIsbn(Long isbn) {
         return em.find(Libro.class, isbn);
+    }
+
+    public List<Libro> findByPubblicationYear(int annoPubblicazione) {
+        return em.createQuery("SELECT l FROM Libro l WHERE l.annoPubblicazione = :annoPubblicazione", Libro.class)
+                .setParameter("annoPubblicazione", annoPubblicazione)
+                .getResultList();
     }
 
     public void insert(Libro libro) {
