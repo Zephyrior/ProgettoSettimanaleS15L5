@@ -8,7 +8,7 @@ import jakarta.persistence.Persistence;
 
 import java.util.List;
 
-public class CercataCatalogoPerAutore {
+public class CercaCatalogoPerAutore {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("epicode");
         EntityManager em = emf.createEntityManager();

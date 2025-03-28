@@ -35,4 +35,9 @@ public class PrestitoDAO {
                 .setParameter("userId", userId)
                 .getResultList();
     }
+
+    public List<Prestito> findOverdueCatalogs(){
+        return em.createQuery("SELECT p FROM Prestito p WHERE p.dataRestituzioneEffettiva IS NULL AND p.dataRestituzionePrevista < CURRENT_DATE", Prestito.class)
+                .getResultList();
+    }
 }

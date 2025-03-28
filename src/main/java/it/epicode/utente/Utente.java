@@ -77,4 +77,15 @@ public class Utente {
     public void setPrestito(List<Prestito> prestiti) {
         this.prestiti = prestiti;
     }
+
+    @Override
+    public String toString() {
+        return "Utente{" +
+                "nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", dataDiNascita=" + dataDiNascita +
+                ", numeroDiTessera=" + numeroDiTessera +
+                ", prestiti=" + prestiti +
+                '}';
+    }
 }
