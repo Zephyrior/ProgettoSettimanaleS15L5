@@ -10,7 +10,6 @@ import java.util.List;
 @Table(name = "riviste")
 public class Rivista extends Catalogo {
 
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Periodicita periodicita;
 
@@ -29,5 +28,12 @@ public class Rivista extends Catalogo {
 
     public void setPeriodicita(Periodicita periodicita) {
         this.periodicita = periodicita;
+    }
+
+    @Override
+    public String toString() {
+        return "Rivista{" + "Il titolo della rivista è: " + super.getTitolo() +
+                ", la periodicità della rivista è: " + periodicita +
+                '}';
     }
 }
