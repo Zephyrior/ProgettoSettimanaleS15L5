@@ -22,6 +22,7 @@ public class RivistaDAO {
                 .getResultList();
     }
 
+
     public void insert(Rivista rivista) {
         em.persist(rivista);
     }

@@ -22,6 +22,12 @@ public class LibroDAO {
                 .getResultList();
     }
 
+    public List<Libro> findByAuthor(String autore) {
+        return em.createQuery("SELECT l FROM Libro l WHERE l.autore = :autore", Libro.class)
+                .setParameter("autore", autore)
+                .getResultList();
+    }
+
     public void insert(Libro libro) {
         em.persist(libro);
     }
