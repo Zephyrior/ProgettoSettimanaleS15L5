@@ -28,6 +28,12 @@ public class LibroDAO {
                 .getResultList();
     }
 
+    public List<Libro> findByTitle(String titolo) {
+        return em.createQuery("SELECT l FROM Libro l WHERE LOWER(l.titolo) LIKE LOWER(:titolo)", Libro.class)
+                .setParameter("titolo", "%" + titolo + "%")
+                .getResultList();
+    }
+
     public void insert(Libro libro) {
         em.persist(libro);
     }

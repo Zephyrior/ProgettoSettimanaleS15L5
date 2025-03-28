@@ -22,6 +22,12 @@ public class RivistaDAO {
                 .getResultList();
     }
 
+    public List<Rivista> findByTitle(String titolo) {
+        return em.createQuery("SELECT r FROM Rivista r WHERE LOWER(r.titolo) LIKE LOWER(:titolo)", Rivista.class)
+                .setParameter("titolo", "%" + titolo + "%")
+                .getResultList();
+    }
+
     public void insert(Rivista rivista) {
         em.persist(rivista);
     }
